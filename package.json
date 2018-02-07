@@ -1,0 +1,42 @@
+{
+    "name": "quick-open-prefill-selection",
+    "displayName": "quick-open-prefill-selection",
+    "description": "Prefills quick open with selected text",
+    "version": "0.0.1",
+    "publisher": "colch",
+    "engines": {
+        "vscode": "^1.20.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.quickOpen.withPrefill"
+    ],
+    "main": "./out/extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.quickOpen.withPrefill",
+                "title": "Open quick open window prefilled from selected text"
+            }
+        ]
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:ColCh/vscode-quick-open-prefill-selection.git"
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6",
+        "@types/node": "^7.0.43",
+        "@types/mocha": "^2.2.42"
+    }
+}
