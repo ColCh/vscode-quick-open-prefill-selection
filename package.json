@@ -3,6 +3,7 @@
     "displayName": "quick-open-prefill-selection",
     "description": "Prefills quick open with selected text",
     "version": "0.2.0",
+    "publisher": "colch",
     "engines": {
         "vscode": "^1.98.0"
     },
