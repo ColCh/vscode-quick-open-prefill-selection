@@ -2,7 +2,7 @@
     "name": "quick-open-prefill-selection",
     "displayName": "quick-open-prefill-selection",
     "description": "Prefills quick open with selected text",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "engines": {
         "vscode": "^1.98.0"
     },
@@ -10,7 +10,10 @@
         "Other"
     ],
     "browser": "./out/extension.js",
-    "extensionKind": ["ui", "workspace"],
+    "extensionKind": [
+        "ui",
+        "workspace"
+    ],
     "contributes": {
         "commands": [
             {
@@ -35,8 +38,8 @@
         "run-in-browser": "vscode-test-web --browserType=chromium --extensionDevelopmentPath=. ."
     },
     "repository": {
-      "type": "git",
-      "url": "https://github.com/ColCh/vscode-quick-open-prefill-selection"
+        "type": "git",
+        "url": "https://github.com/ColCh/vscode-quick-open-prefill-selection"
     },
     "devDependencies": {
         "@types/vscode": "^1.98.0",
