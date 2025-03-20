@@ -2,7 +2,11 @@
 
 VS Code extension which adds command that will open *Quick Open* window prefilled with selected text
 
-![Demo](https://media.giphy.com/media/3ohjUQ0vwIZTGx1wis/giphy.gif)
+## Demo video
+
+(works in [vscode web](https://code.visualstudio.com/docs/editor/vscode-web) too)
+
+[![Imgur](https://i.imgur.com/sMvVy4N.png)](https://imgur.com/9Mvhp15)
 
 ## Extension Settings
 

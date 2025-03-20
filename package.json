@@ -3,17 +3,14 @@
     "displayName": "quick-open-prefill-selection",
     "description": "Prefills quick open with selected text",
     "version": "0.1.0",
-    "publisher": "colch",
     "engines": {
-        "vscode": "^1.20.0"
+        "vscode": "^1.98.0"
     },
     "categories": [
         "Other"
     ],
-    "activationEvents": [
-        "onCommand:extension.quickOpen.withPrefill"
-    ],
-    "main": "./out/extension",
+    "browser": "./out/extension.js",
+    "extensionKind": ["ui", "workspace"],
     "contributes": {
         "commands": [
             {
@@ -22,21 +19,37 @@
             }
         ]
     },
-    "repository": {
-        "type": "git",
-        "url": "git@github.com:ColCh/vscode-quick-open-prefill-selection.git"
-    },
     "scripts": {
-        "vscode:prepublish": "npm run compile",
-        "compile": "tsc -p ./",
-        "watch": "tsc -watch -p ./",
-        "postinstall": "node ./node_modules/vscode/bin/install",
-        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+        "vscode:prepublish": "npm run package",
+        "compile": "npm run check-types && npm run lint && node esbuild.js",
+        "watch": "npm-run-all -p watch:*",
+        "watch:esbuild": "node esbuild.js --watch",
+        "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+        "package": "npm run check-types && npm run lint && node esbuild.js --production",
+        "compile-tests": "tsc -p . --outDir out",
+        "watch-tests": "tsc -p . -w --outDir out",
+        "pretest": "npm un compile-tests && npm run compile && npm run lint",
+        "check-types": "tsc --noEmit",
+        "lint": "eslint src",
+        "test": "vscode-test",
+        "run-in-browser": "vscode-test-web --browserType=chromium --extensionDevelopmentPath=. ."
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/ColCh/vscode-quick-open-prefill-selection"
     },
     "devDependencies": {
-        "typescript": "^2.6.1",
-        "vscode": "^1.1.6",
-        "@types/node": "^7.0.43",
-        "@types/mocha": "^2.2.42"
+        "@types/vscode": "^1.98.0",
+        "@types/mocha": "^10.0.10",
+        "@types/node": "20.x",
+        "@typescript-eslint/eslint-plugin": "^8.25.0",
+        "@typescript-eslint/parser": "^8.25.0",
+        "eslint": "^9.21.0",
+        "esbuild": "^0.25.0",
+        "npm-run-all": "^4.1.5",
+        "typescript": "^5.7.3",
+        "@vscode/test-cli": "^0.0.10",
+        "@vscode/test-electron": "^2.4.1",
+        "@vscode/test-web": "*"
     }
 }

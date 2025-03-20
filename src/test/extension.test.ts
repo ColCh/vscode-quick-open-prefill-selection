@@ -5,7 +5,7 @@ import * as myExtension from '../extension';
 suite("quick-open-prefill-selection", () => {
     const context = {
         subscriptions: []
-    } as vscode.ExtensionContext;
+    } as unknown as vscode.ExtensionContext;
 
     test("should open 'quick open' and prefill selected text", async () => {
         let text = '';

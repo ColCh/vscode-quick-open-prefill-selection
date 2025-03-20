@@ -1,13 +1,18 @@
-'use strict';
 import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
+    let disposable = vscode.commands.registerCommand('extension.quickOpen.withPrefill', async () => {
+        const editor = vscode.window.activeTextEditor;
 
-    let disposable = vscode.commands.registerCommand('extension.quickOpen.withPrefill', () => {
-        vscode.commands.executeCommand(
-            'workbench.action.quickOpen',
-            vscode.window.activeTextEditor.document.getText(vscode.window.activeTextEditor.selection)
-        );
+        if (!editor) {
+            await vscode.commands.executeCommand('workbench.action.quickOpen', '');
+            return;
+        }
+
+        const selection = editor.selection;
+        const selectedText = editor.document.getText(selection);
+
+        await vscode.commands.executeCommand('workbench.action.quickOpen', selectedText);
     });
 
     context.subscriptions.push(disposable);
