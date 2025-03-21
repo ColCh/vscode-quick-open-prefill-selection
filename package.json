@@ -2,7 +2,7 @@
     "name": "quick-open-prefill-selection",
     "displayName": "quick-open-prefill-selection",
     "description": "Prefills quick open with selected text",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "publisher": "colch",
     "icon": "images/icon.png",
     "engines": {
