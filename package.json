@@ -12,9 +12,13 @@
         "Other"
     ],
     "browser": "./out/extension.js",
+    "main": "./out/extension.js",
     "extensionKind": [
         "ui",
         "workspace"
+    ],
+    "activationEvents": [
+        "onCommand:extension.quickOpen.withPrefill"
     ],
     "contributes": {
         "commands": [
